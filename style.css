@@ -1,0 +1,89 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #333;
+    background-color: #f0f7f0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 { color: #2d5a27; }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-bottom: 5px solid #2d5a27;
+}
+
+.battery-level, .count-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2d5a27;
+    margin: 10px 0;
+}
+
+/* Toggle Switch Style */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; width: 26px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: #2d5a27; }
+input:checked + .slider:before { transform: translateX(26px); }
+
+.photo-section {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    border: 3px solid #2d5a27;
+}
