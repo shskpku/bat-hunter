@@ -1,23 +1,17 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    color: #333;
     background-color: #f0f7f0;
+    color: #2d5a27;
 }
 
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    position: relative;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 { color: #2d5a27; }
+header { text-align: center; margin-bottom: 30px; }
 
 .main-grid {
     display: grid;
@@ -27,30 +21,27 @@ header h1 { color: #2d5a27; }
 
 .card {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     border-bottom: 5px solid #2d5a27;
 }
 
 .battery-level, .count-number {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
-    color: #2d5a27;
     margin: 10px 0;
 }
 
-/* Toggle Switch Style */
+/* Toggle Switch */
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
 }
-
 .switch input { display: none; }
-
 .slider {
     position: absolute;
     cursor: pointer;
@@ -59,17 +50,14 @@ header h1 { color: #2d5a27; }
     transition: .4s;
     border-radius: 34px;
 }
-
 .slider:before {
-    position: absolute;
-    content: "";
+    position: absolute; content: "";
     height: 26px; width: 26px;
     left: 4px; bottom: 4px;
     background-color: white;
     transition: .4s;
     border-radius: 50%;
 }
-
 input:checked + .slider { background-color: #2d5a27; }
 input:checked + .slider:before { transform: translateX(26px); }
 
@@ -79,11 +67,4 @@ input:checked + .slider:before { transform: translateX(26px); }
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-}
-
-.image-container img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-    border: 3px solid #2d5a27;
 }
