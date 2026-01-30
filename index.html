@@ -7,24 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="forest-bg"></div>
     <div class="container">
         <header>
             <h1>🌿 Smart Bat Repeller</h1>
-            <p>Monitoring Kebun Kelengkeng - PCR</p>
+            <p>Monitoring Kebun Kelengkeng/p>
         </header>
 
         <div class="main-grid">
             <div class="card status-card">
                 <h3>Daya Panel Surya</h3>
-                <div class="battery-level">85%</div>
-                <p>Status: Mengisi Daya</p>
+                <div class="battery-level" id="batteryLevel">0%</div>
+                <p id="batteryStatus">Status: Siaga</p>
             </div>
 
             <div class="card count-card">
                 <h3>Deteksi Kelelawar</h3>
-                <div class="count-number" id="batCount">24</div>
-                <p>Kali tertangkap hari ini</p>
+                <div class="count-number" id="batCount">0</div>
+                <p>Kali terdeteksi oleh Radar</p>
             </div>
 
             <div class="card control-card">
@@ -38,10 +37,9 @@
         </div>
 
         <div class="photo-section">
-            <h3>📸 Tangkapan Kamera Terakhir</h3>
-            <div class="image-container">
-                <img src="https://via.placeholder.com/600x400?text=Foto+Kelelawar+Terbaru" alt="Bat Detection" id="lastPhoto">
-                <p class="timestamp">Terdeteksi pada: 30/01/2026 - 22:15 WIB</p>
+            <h3>📸 Status Terakhir</h3>
+            <div class="image-placeholder">
+                <p>Sensor Doppler Radar Aktif Memantau...</p>
             </div>
         </div>
     </div>
