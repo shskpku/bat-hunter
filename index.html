@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Bat Repeller - Dashboard Zakia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="forest-bg"></div>
+    <div class="container">
+        <header>
+            <h1>🌿 Smart Bat Repeller</h1>
+            <p>Monitoring Kebun Kelengkeng - PCR</p>
+        </header>
+
+        <div class="main-grid">
+            <div class="card status-card">
+                <h3>Daya Panel Surya</h3>
+                <div class="battery-level">85%</div>
+                <p>Status: Mengisi Daya</p>
+            </div>
+
+            <div class="card count-card">
+                <h3>Deteksi Kelelawar</h3>
+                <div class="count-number" id="batCount">24</div>
+                <p>Kali tertangkap hari ini</p>
+            </div>
+
+            <div class="card control-card">
+                <h3>Kontrol Sistem</h3>
+                <label class="switch">
+                    <input type="checkbox" checked id="remoteSwitch">
+                    <span class="slider round"></span>
+                </label>
+                <p id="statusText">Sistem: AKTIF</p>
+            </div>
+        </div>
+
+        <div class="photo-section">
+            <h3>📸 Tangkapan Kamera Terakhir</h3>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x400?text=Foto+Kelelawar+Terbaru" alt="Bat Detection" id="lastPhoto">
+                <p class="timestamp">Terdeteksi pada: 30/01/2026 - 22:15 WIB</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
