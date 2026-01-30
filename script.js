@@ -1,52 +1,43 @@
-// URL Firebase Realtime Database milik Zakia
+// URL Firebase Realtime Database Zakia
 const firebaseURL = "https://bat-rapeller-default-rtdb.asia-southeast1.firebasedatabase.app/.json";
 
-const batCountElement = document.getElementById('batCount');
-const batteryLevelElement = document.querySelector('.battery-level');
-const statusText = document.getElementById('statusText');
-const remoteSwitch = document.getElementById('remoteSwitch');
-
-// 1. Fungsi Utama: Mengambil data dari Firebase
 async function updateDashboard() {
     try {
         const response = await fetch(firebaseURL);
         const data = await response.json();
         
         if (data) {
-            // Update jumlah deteksi di Dashboard (Angka 6 di gambar kamu)
-            if (batCountElement) batCountElement.innerText = data.deteksi || 0;
-            
-            // Update persentase baterai di Dashboard (35% di gambar kamu)
-            if (batteryLevelElement) {
-                batteryLevelElement.innerText = (data.baterai || 0) + "%";
-                
-                // Indikator Warna: Merah jika baterai kritis (< 20%)
-                if (data.baterai < 20) {
-                    batteryLevelElement.style.color = "#e74c3c";
-                } else {
-                    batteryLevelElement.style.color = "#2d5a27";
-                }
+            // Update Angka Baterai dari Firebase
+            const batteryElement = document.getElementById('batteryLevel');
+            if (batteryElement) {
+                batteryElement.innerText = (data.baterai || 0) + "%";
+                // Ubah warna jika baterai rendah
+                batteryElement.style.color = (data.baterai < 20) ? "#e74c3c" : "#2d5a27";
             }
-            console.log("Data berhasil disinkronkan dari Firebase");
+            
+            // Update Jumlah Deteksi dari Firebase
+            const countElement = document.getElementById('batCount');
+            if (countElement) countElement.innerText = data.deteksi || 0;
+            
+            // Update Status Pengisian
+            const batStatus = document.getElementById('batteryStatus');
+            if (batStatus) batStatus.innerText = (data.baterai < 100) ? "Status: Mengisi Daya" : "Status: Penuh";
         }
     } catch (error) {
-        console.error("Gagal mengambil data dari Firebase:", error);
+        console.error("Gagal sinkronisasi dengan Firebase:", error);
     }
 }
 
-// 2. Kontrol On/Off (Interaksi lokal di Web)
+// Kontrol On/Off Lokal
+const remoteSwitch = document.getElementById('remoteSwitch');
+const statusText = document.getElementById('statusText');
 if (remoteSwitch) {
     remoteSwitch.addEventListener('change', function() {
-        if (this.checked) {
-            statusText.innerText = "Sistem: AKTIF";
-            statusText.style.color = "#2d5a27";
-        } else {
-            statusText.innerText = "Sistem: NONAKTIF";
-            statusText.style.color = "#c0392b";
-        }
+        statusText.innerText = this.checked ? "Sistem: AKTIF" : "Sistem: NONAKTIF";
+        statusText.style.color = this.checked ? "#2d5a27" : "#e74c3c";
     });
 }
 
-// Jalankan pengecekan data setiap 2 detik (Real-time Feel)
+// Cek data secara rutin
 setInterval(updateDashboard, 2000);
-updateDashboard(); // Panggil sekali saat halaman dimuat
+updateDashboard();
